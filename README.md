@@ -1,8 +1,6 @@
 # Encryptatron
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/encryptatron`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Used to load encrypted data from disk into configatron.
 
 ## Installation
 
@@ -22,7 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Run: `encryptatron encrypt file_to_encrypt.yml`
+2. Add: `ENCRYPTATRON_KEY=whatever` to your .env file and any CI environments that need it
+3. Initialize configatron: `configatron = Encryptatron.load('file_to_encrypt.yml')`
+4. Check in: `file_to_encrypt.yml.enc` and `file_to_encrypt.yml.iv`, DO NOT CHECK IN `file_to_encrypt.yml`
 
 ## Development
 

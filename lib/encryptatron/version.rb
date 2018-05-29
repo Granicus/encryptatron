@@ -1,3 +1,3 @@
 module Encryptatron
-  VERSION = "0.1.0"
+  VERSION = File.read(File.join(__dir__, "../../.version")).freeze
 end
