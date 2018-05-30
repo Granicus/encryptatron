@@ -22,8 +22,8 @@ Or install it yourself as:
 
 1. Run: `encryptatron encrypt file_to_encrypt.yml`
 2. Add: `ENCRYPTATRON_KEY=whatever` to your .env file and any CI environments that need it
-3. Initialize configatron: `configatron = Encryptatron.load('file_to_encrypt.yml')`
-4. Check in: `file_to_encrypt.yml.enc` and `file_to_encrypt.yml.iv`, DO NOT CHECK IN `file_to_encrypt.yml`
+3. Initialize configatron: `Encryptatron.use('file_to_encrypt.yml')` or `configatron = Encryptatron.load('file_to_encrypt.yml')`
+4. Check in: `file_to_encrypt.yml.enc` and `file_to_encrypt.yml.iv`, you can check in `file_to_encrypt.yml` if you remove the secrets
 
 ## Development
 
@@ -33,4 +33,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/encryptatron.
+Bug reports and pull requests are welcome on GitHub at https://github.com/govdelivery/encryptatron.
