@@ -2,6 +2,7 @@ require 'json'
 require 'yaml'
 require 'openssl'
 require 'base64'
+require 'deep_merge'
 
 module Encryptatron
   class FileHandler
@@ -18,8 +19,8 @@ module Encryptatron
     end
 
     def load(key)
-      load_encrypted(key) if File.exist?(enc_file) && File.exist?(iv_file)
-      load_unencrypted
+      self.data =  File.exist?(file) ? load_unencrypted : {}
+      self.data.deep_merge!(load_encrypted(key)) if File.exist?(enc_file) && File.exist?(iv_file)
     end
 
     def load_unencrypted

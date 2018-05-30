@@ -13,12 +13,17 @@ describe Encryptatron::FileHandler do
 
   it 'calls load_unencrypted if the files do not exist' do
     subject = Encryptatron::FileHandler.new('foo.yml')
+    expect(File).to receive(:exist?).with('foo.yml').and_return(true)
+    expect(File).to receive(:exist?).with('foo.yml.enc').and_return(false)
     expect(subject).to receive(:load_unencrypted)
     subject.load('whatever')
   end
 
   context 'files exist' do
     it 'calls load_encrypted if the files do exist' do
+    expect(File).to receive(:exist?).with(file_fixture('test.yml')).and_return(false)
+    expect(File).to receive(:exist?).with(file_fixture('test.yml.enc')).and_return(true)
+    expect(File).to receive(:exist?).with(file_fixture('test.yml.iv')).and_return(true)
       expect(subject).to receive(:load_encrypted).with('whatever')
       subject.load('whatever')
     end
