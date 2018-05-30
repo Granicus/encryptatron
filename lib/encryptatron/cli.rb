@@ -27,6 +27,7 @@ module Encryptatron
 
       file = Encryptatron::FileHandler.new(params[1])
       if action == 'encrypt'
+        file.load_unencrypted
         new_key = file.encrypt!(key)
         puts "Generated new encryption key: #{new_key}" unless key
       elsif action == 'decrypt'

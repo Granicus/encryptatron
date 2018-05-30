@@ -22,6 +22,7 @@ module Encryptatron
     def load(key)
       self.data = File.exist?(file) ? load_unencrypted : {}
       data.deep_merge!(load_encrypted(key)) if File.exist?(enc_file) && File.exist?(iv_file)
+      data
     end
 
     def load_unencrypted
@@ -37,7 +38,6 @@ module Encryptatron
       encrypted = File.read(enc_file)
 
       plain = decipher.update(encrypted) + decipher.final
-
       self.data = JSON.parse(plain)
     end
 
@@ -48,7 +48,7 @@ module Encryptatron
       cipher.key = key
       iv = cipher.random_iv
 
-      encrypted = cipher.update(JSON.generate(data)) + cipher.final
+      encrypted = cipher.update(data.to_json) + cipher.final
 
       File.write(enc_file, encrypted)
       File.write(iv_file, iv)

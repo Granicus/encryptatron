@@ -20,6 +20,7 @@ describe Encryptatron::CLI do
     end
 
     it 'calls encrypt on the file object when given action' do
+      expect(test_handler).to receive(:load_unencrypted)
       expect(test_handler).to receive(:encrypt!)
       expect { described_class.invoke(['encrypt', 'tmp/file_test.yml']) }.not_to raise_error
     end

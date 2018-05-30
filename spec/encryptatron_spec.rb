@@ -10,6 +10,7 @@ describe Encryptatron do
     ENV['ENCRYPTATRON_KEY'] = 'here is a long encryption key'
     expect(Encryptatron::FileHandler).to receive(:new).with('file.yml').and_return(file_double)
     expect(file_double).to receive(:load).with('here is a long encryption key').and_return(key_name: 'value')
+    expect(file_double).to receive(:data).and_return(key_name: 'value')
     expect(Encryptatron.load('file.yml')).to eq(key_name: 'value')
   end
 

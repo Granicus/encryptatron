@@ -8,10 +8,12 @@ Dotenv.load
 
 module Encryptatron
   def self.load(file)
-    Encryptatron::FileHandler.new(file).load(ENV['ENCRYPTATRON_KEY'])
+    file = Encryptatron::FileHandler.new(file)
+    file.load(ENV['ENCRYPTATRON_KEY'])
+    file.data
   end
 
   def self.use(file)
-    configatron.configre_from_hash(load(file))
+    configatron.configure_from_hash(load(file))
   end
 end
