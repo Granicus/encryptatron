@@ -1,5 +1,5 @@
 
-lib = File.expand_path("../lib", __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "encryptatron/version"
 
@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alex Ives"]
   spec.email         = ["alex.ives@granicus.com"]
 
-  spec.summary       = %q{Load and encrypt configuration files for configatron}
+  spec.summary       = 'Load and encrypt configuration files for configatron'
   spec.homepage      = "https://gitlab.granicuslabs.com/development/encryptatron"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
       "public gem pushes."
   end
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+  spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
   spec.bindir        = "exe"
@@ -29,11 +29,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "configatron"
-  spec.add_dependency "dotenv"
   spec.add_dependency "deep_merge"
+  spec.add_dependency "dotenv"
 
   spec.add_development_dependency "bundler", "~> 1.16"
+  spec.add_development_dependency "pry"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "pry"
+  spec.add_development_dependency "rubocop"
 end

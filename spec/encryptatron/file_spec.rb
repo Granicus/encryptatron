@@ -21,9 +21,9 @@ describe Encryptatron::FileHandler do
 
   context 'files exist' do
     it 'calls load_encrypted if the files do exist' do
-    expect(File).to receive(:exist?).with(file_fixture('test.yml')).and_return(false)
-    expect(File).to receive(:exist?).with(file_fixture('test.yml.enc')).and_return(true)
-    expect(File).to receive(:exist?).with(file_fixture('test.yml.iv')).and_return(true)
+      expect(File).to receive(:exist?).with(file_fixture('test.yml')).and_return(false)
+      expect(File).to receive(:exist?).with(file_fixture('test.yml.enc')).and_return(true)
+      expect(File).to receive(:exist?).with(file_fixture('test.yml.iv')).and_return(true)
       expect(subject).to receive(:load_encrypted).with('whatever')
       subject.load('whatever')
     end
@@ -31,18 +31,18 @@ describe Encryptatron::FileHandler do
 
   context '#load_unencrypted' do
     it 'loads a file from yaml' do
-      expect(subject.load_unencrypted).to eq({'test'=>['yml', 'yaml', 'json']})
+      expect(subject.load_unencrypted).to eq('test' => %w[yml yaml json])
     end
   end
 
   context '#load_encrypted' do
     it 'loads an encrypted file' do
-      expect(subject.load_encrypted(key)).to eq({"test"=>["yml", "yaml", "json"], "data"=>{"more_data"=>"another thing"}})
+      expect(subject.load_encrypted(key)).to eq("test" => %w[yml yaml json], "data" => { "more_data" => "another thing" })
     end
   end
 
   context '#encrypt!' do
-    let(:dir){ 'tmp/testdata' }
+    let(:dir) { 'tmp/testdata' }
 
     before :each do
       FileUtils.mkdir_p dir
@@ -53,7 +53,7 @@ describe Encryptatron::FileHandler do
     end
 
     it 'writes out an encrypted file' do
-      expected_data = {"foo" => 'bar', "beep" => 'boop'}
+      expected_data = { "foo" => 'bar', "beep" => 'boop' }
       subject.file = "#{dir}/test_encryption.yml"
       subject.data = expected_data
       subject.encrypt!(key)

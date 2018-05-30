@@ -10,7 +10,7 @@ module Encryptatron
       optparse = OptionParser.new do |opts|
         opts.banner = "Usage: encryptatron [flags] <encrypt|decrypt> <file>"
 
-        opts.on('-k', '--key [base64 encoded key]', 'Specify a base64 encoded encryption key') do |key|
+        opts.on('-k', '--key [base64 encoded key]', 'Specify a base64 encoded encryption key') do |_key|
           key = url
         end
 

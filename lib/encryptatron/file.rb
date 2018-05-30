@@ -6,7 +6,8 @@ require 'deep_merge'
 
 module Encryptatron
   class FileHandler
-    attr_accessor :file, :iv_file, :enc_file, :data
+    attr_accessor :iv_file, :enc_file, :data
+    attr_reader :file
 
     def initialize(file)
       self.file = file
@@ -19,16 +20,16 @@ module Encryptatron
     end
 
     def load(key)
-      self.data =  File.exist?(file) ? load_unencrypted : {}
-      self.data.deep_merge!(load_encrypted(key)) if File.exist?(enc_file) && File.exist?(iv_file)
+      self.data = File.exist?(file) ? load_unencrypted : {}
+      data.deep_merge!(load_encrypted(key)) if File.exist?(enc_file) && File.exist?(iv_file)
     end
 
     def load_unencrypted
       self.data = YAML.load_file(file) if File.exist?(file)
     end
 
-    def load_encrypted(encodedKey)
-      key = Base64.decode64(encodedKey)
+    def load_encrypted(encoded_key)
+      key = Base64.decode64(encoded_key)
       decipher = OpenSSL::Cipher::AES.new(256, :CBC)
       decipher.decrypt
       decipher.iv = File.read(iv_file)
@@ -40,10 +41,10 @@ module Encryptatron
       self.data = JSON.parse(plain)
     end
 
-    def encrypt!(encodedKey = nil)
+    def encrypt!(encoded_key = nil)
       cipher = OpenSSL::Cipher::AES.new(256, :CBC)
       cipher.encrypt
-      key = encodedKey.nil? ? cipher.random_key : Base64.decode64(encodedKey)
+      key = encoded_key.nil? ? cipher.random_key : Base64.decode64(encoded_key)
       cipher.key = key
       iv = cipher.random_iv
 

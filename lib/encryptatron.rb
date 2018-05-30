@@ -10,6 +10,6 @@ module Encryptatron
   end
 
   def self.use(file)
-    configatron.configre_from_hash(self.load(file))
+    configatron.configre_from_hash(load(file))
   end
 end
