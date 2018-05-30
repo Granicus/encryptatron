@@ -1,4 +1,5 @@
+---
 test:
-  - yml
-  - yaml
-  - json
+- yml
+- yaml
+- json
