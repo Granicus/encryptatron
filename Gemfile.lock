@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     encryptatron (1.0.0)
-      configatron
-      deep_merge
-      dotenv
+      configatron (> 2)
+      deep_merge (> 1)
+      dotenv (> 1)
 
 GEM
   remote: https://rubygems.org/
@@ -54,10 +54,10 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   encryptatron!
-  pry
+  pry (> 0)
   rake (~> 10.0)
   rspec (~> 3.0)
-  rubocop
+  rubocop (~> 0.56)
 
 BUNDLED WITH
    1.16.1

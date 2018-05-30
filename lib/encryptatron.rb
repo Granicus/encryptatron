@@ -1,8 +1,10 @@
 require 'configatron'
-require 'dotenv/load'
+require 'dotenv'
 require 'encryptatron/cli'
 require 'encryptatron/file'
 require 'encryptatron/version'
+require 'optparse'
+Dotenv.load
 
 module Encryptatron
   def self.load(file)

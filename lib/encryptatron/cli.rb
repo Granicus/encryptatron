@@ -1,6 +1,3 @@
-require 'dotenv/load'
-require 'optparse'
-
 module Encryptatron
   class CLI
     def self.invoke(args)
