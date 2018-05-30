@@ -31,7 +31,7 @@ module Encryptatron
         new_key = file.encrypt!(key)
         puts "Generated new encryption key: #{new_key}" unless key
       elsif action == 'decrypt'
-        file.load_encrypted(key)
+        file.load(key)
         File.write(file.file, YAML.dump(file.data))
       end
     end

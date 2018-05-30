@@ -2,6 +2,8 @@
 
 Used to load encrypted data from disk into configatron.
 
+[![Build Status](https://travis-ci.org/govdelivery/encryptatron.svg?branch=master)](https://travis-ci.org/govdelivery/encryptatron)
+
 ## Installation
 
 Add this line to your application's Gemfile:
