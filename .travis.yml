@@ -1,0 +1,11 @@
+sudo: false
+language: ruby
+cache: bundler
+rvm:
+  - 2.3.5
+before_install: gem install bundler -v 1.16.1
+language: ruby
+env:
+  - TEST_COMMAND="bundle exec rspec"
+  - TEST_COMMAND="bundle exec rubocop"
+script: (eval "$TEST_COMMAND")
