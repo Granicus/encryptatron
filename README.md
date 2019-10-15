@@ -2,7 +2,7 @@
 
 Used to load encrypted data from disk into configatron.
 
-[![Build Status](https://travis-ci.org/govdelivery/encryptatron.svg?branch=master)](https://travis-ci.org/govdelivery/encryptatron)
+[![Build Status](https://travis-ci.org/granicus/encryptatron.svg?branch=master)](https://travis-ci.org/granicus/encryptatron)
 
 ## Installation
 
@@ -35,4 +35,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/govdelivery/encryptatron.
+Bug reports and pull requests are welcome on GitHub at https://github.com/granicus/encryptatron.
