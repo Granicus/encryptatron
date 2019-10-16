@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["alex.ives@granicus.com"]
 
   spec.summary       = 'Load and encrypt configuration files for configatron'
-  spec.homepage      = "https://github.com/govdelivery/encryptatron"
+  spec.homepage      = "https://github.com/granicus/encryptatron"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
