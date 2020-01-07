@@ -39,6 +39,10 @@ describe Encryptatron::FileHandler do
     it 'loads an encrypted file' do
       expect(subject.load_encrypted(key)).to eq("test" => %w[yml yaml json], "data" => { "more_data" => "another thing" })
     end
+
+    it 'raises an exception if the encryption key is not set' do
+      expect { subject.load_encrypted(nil) }.to raise_error(RuntimeError)
+    end
   end
 
   context '#encrypt!' do

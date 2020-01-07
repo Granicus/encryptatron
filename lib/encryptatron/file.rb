@@ -30,6 +30,7 @@ module Encryptatron
     end
 
     def load_encrypted(encoded_key)
+      raise 'Encryption key is nil, you may need to set the ENCRYPTATRON_KEY environment variable' unless encoded_key
       key = Base64.decode64(encoded_key)
       decipher = OpenSSL::Cipher::AES.new(256, :CBC)
       decipher.decrypt
