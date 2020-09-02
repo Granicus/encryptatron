@@ -6,8 +6,8 @@ require "encryptatron/version"
 Gem::Specification.new do |spec|
   spec.name          = "encryptatron"
   spec.version       = Encryptatron::VERSION
-  spec.authors       = ["Alex Ives"]
-  spec.email         = ["alex.ives@granicus.com"]
+  spec.authors       = ["Team Pigeon"]
+  spec.email         = ["pigeon@granicus.com"]
 
   spec.summary       = 'Load and encrypt configuration files for configatron'
   spec.homepage      = "https://github.com/granicus/encryptatron"
@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "pry", ">0"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rubocop", "~>0.56"
 end
