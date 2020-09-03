@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    encryptatron (1.0.0)
+    encryptatron (1.0.1)
       configatron (> 2)
       deep_merge (> 1)
       dotenv (> 1)
